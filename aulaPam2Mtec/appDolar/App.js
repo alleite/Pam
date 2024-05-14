@@ -7,7 +7,7 @@ export default function App() {
 
   function converDolar() {
     if (dolar > 0) {
-      setReal((parseFloat(dolar)) / 4.89);
+      setReal(((parseFloat(dolar)) / 4.89).toFixed(2));
     }
     else{
       setReal ('');
@@ -41,23 +41,28 @@ onPress={converDolar}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#54ffff',
+    backgroundColor: '#ADD8E6',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  titulo:{
+    fontSize:20,
+    textAlign: 'center',
+  },
   texto: {
     color: '#543',
-    fontSize: 15,
+    fontSize: 17,
     textAlign: 'center'
   },
   caixa:{
     textAlign: 'center',
     borderWidth: 4,
-    width:200,
-    height:45,
+    width:190,
+    height:33,
     borderColor: '#444',
     borderRadius: 10, 
-    fontSize:18
-  },
-  
+    fontSize:18,
+    marginBottom: 10, 
+    marginTop: 10,
+  }, 
 });
