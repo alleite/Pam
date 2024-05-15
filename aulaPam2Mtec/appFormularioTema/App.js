@@ -36,6 +36,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <ScrollView>
+        <image
+          styles={styles.Image}
+          source={require('./assets/image.png')}></image>
         <Text style={styles.titulo}>Cadastro do Hotel</Text>
         <View style={styles.areaformulario}>
           <Text style={styles.textoNome}>Nome: </Text>
@@ -104,8 +107,8 @@ export default function App() {
 
             </Checkbox>
             <Text style={styles.textoPontos}>Cachoeira do Mel</Text>
-            </View>
-            <View>
+          </View>
+          <View>
             <Text style={styles.textoNome}>Qual veículo você ira utilizar? </Text>
             <RadioButton
               style={styles.areaRadio}
@@ -171,9 +174,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#C9BCF0',
+    backgroundColor: '#87c9ff',
 
   },
+  image: {
+    width: '400px',
+    height: '220px'
+  },
+
   areaformulario:
   {
     flexDirection: 'column',
@@ -181,7 +189,7 @@ const styles = StyleSheet.create({
   },
   textoNome: {
     fontSize: 17,
-    color: '#000000',
+    color: '#ffffff',
     fontWeight: 'bold',
   },
 
@@ -198,7 +206,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   valorTexto: {
-    color: '#FF0000',
+    color: '#000000',
     fontSize: 17,
     fontWeight: 'bold',
     paddingLeft: 5,
@@ -214,7 +222,7 @@ const styles = StyleSheet.create({
 
   },
   botao: {
-    backgroundColor: '#553D9D',
+    backgroundColor: ' #9bcc0c',
     width: '60%',
     alignSelf: "center",
     height: 50,
@@ -245,10 +253,11 @@ const styles = StyleSheet.create({
   titulo:
   {
     fontSize: 40,
-    color: "#000",
+    color: "#fff",
     marginLeft: 23,
     marginTop: 15,
     fontWeight: 'bold'
   }
 });
+
 
