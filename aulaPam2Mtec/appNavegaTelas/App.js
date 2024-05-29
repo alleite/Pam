@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 
-import { Picker } from '@react-native-picker/picker';
 import Slider from '@react-native-community/slider';
-import { Switch } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 import { RadioButton } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Ionicons} from '@expo/vector-icons'
+
+import Principal from './src/telas/Principal';
+import Tela1 from './src/telas/Tela1';
+import Tela2 from './src/telas/Tela2';
+import Tela3 from './src/telas/Tela3';
+
 
 export default function App() {
 
-  const [nome, setNome] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [Rg, setRg] = useState('');
-  const [dias, setDias] = useState(365);
-  const [checked, setChecked] = useState('Cachoeira do Faú');
   const [checked2, setChecked2] = useState('Carro própio');
 
 
@@ -35,29 +38,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <Image
-          styles={styles.image}
-          source={require('./assets/image.png')}></Image>
-        <Text style={styles.titulo}>Cadastro do Hotel</Text>
-        <View style={styles.areaformulario}>
-          <Text style={styles.textoNome}>Nome: </Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={nome => setNome(nome)}
-            placeholder='Digite aqui o seu nome:'></TextInput>
-          <Text style={styles.textoNome}>Telefone: </Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={telefone => setTelefone(telefone)}
-            placeholder='Digite aqui o seu telefone:'></TextInput>
-
-          <Text style={styles.textoNome}>RG: </Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={Rg => setRg(Rg)}
-            placeholder='Digite aqui o seu RG: '></TextInput>
-
+      <ScrollView></ScrollView>
           <Text style={styles.textoNome}>Escolha quais pontos turísticos você quer visitar: </Text>
           <View>
             <Checkbox
@@ -142,20 +123,6 @@ export default function App() {
 
             </RadioButton>
             <Text style={styles.textoPontos}>Bicicletas</Text>
-          </View>
-
-          <View style={styles.valorCarro}>
-            <Text style={styles.textoNome}>Quantidade de dias:</Text>
-            <Text style={styles.carroTexto}>{dias.toFixed(0)}</Text>
-          </View>
-          <View style={styles.areaSlider}>
-            <Slider
-              minimumTrackTintColor='#BEF0BC'
-              minimumValue={1}
-              maximumValue={365}
-              value={dias}
-              onValueChange={(dias) => setDias(dias)}>
-            </Slider>
           </View>
 
           <TouchableOpacity
