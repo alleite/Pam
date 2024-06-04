@@ -1,141 +1,85 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 
-import Slider from '@react-native-community/slider';
-import { Checkbox } from 'react-native-paper';
-import { RadioButton } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons'
+
 
 import Principal from './src/telas/Principal';
 import Tela1 from './src/telas/Tela1';
 import Tela2 from './src/telas/Tela2';
 import Tela3 from './src/telas/Tela3';
 
+const Tab = createBottomTabNavigator();
+
+function Tabs(){
+  return(
+    <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+        if (route.name === 'Tela1') {
+          iconName = focused
+            ? 'home-outline'
+            : 'bed-outline';
+        } else if (route.name === 'Tela2') {
+          iconName = focused ? 'person-outline' : 'body-outline';
+        }else if (route.name === 'Tela3') {
+          iconName = focused ? 'people-outline' : 'happy-outline';
+        }
+        
+        //aqui define os ícones que irão aparecer nas Tabs
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+    })}
+    tabBarOptions={{
+      activeTintColor: '#3f64c7',
+      inactiveTintColor: 'gray',      
+    }}    
+    >
+      <Tab.Screen name= "Tela1" component={Tela1}></Tab.Screen>
+      <Tab.Screen name= "Tela2" component={Tela2}></Tab.Screen>
+      <Tab.Screen name= "Tela3" component={Tela3}></Tab.Screen>
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
-
-  const [checked2, setChecked2] = useState('Carro própio');
-
-
-  function enviarDados() {
-    if (nome == '' || telefone == '') {
-      alert('Preecha todos os campos corretamente')
-    }
-    else {
-      alert('Informações do cadastro: \n\n' +
-        'Nome do cliente: ' + nome + '\n' +
-        'telefone: ' + telefone + '\n' +
-        'RG: ' + Rg + '\n' +
-        'Pontos turísticos que irá visitar: ' + checked + '\n' +
-        'Transporte que utilizará: ' + checked2 + '\n' +
-        'Quantidade de dias: ' + dias.toFixed(0) + '\n'
-      )
-    }
-  }
-
+  const Stack = createStackNavigator();
   return (
-    <View style={styles.container}>
-      <ScrollView></ScrollView>
-          <Text style={styles.textoNome}>Escolha quais pontos turísticos você quer visitar: </Text>
-          <View>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Cachoeira do Faú "
-              status={checked == 'Cachoeira do Faú' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Cachoeira do Faú')}>
-            </Checkbox>
-            <Text style={styles.textoPontos}>Cachoeira do Faú</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Cachoeira da Pedra Grande"
-              status={checked == 'Cachoeira da Pedra Grande' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Cachoeira da Pedra Grande')}>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Cachoeira da Pedra Grande</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Serra do Manecão"
-              status={checked == 'Serra do Manecão' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Serra do Manecão')}>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Principal'>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Serra do Manecão</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Legado das Águas "
-              status={checked == 'Legado das Águas' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Legado das Águas')}>
+        <Stack.Screen
+          name="Tela1"
+          component={Tabs}
+          options={{
+            title: 'Tela 1',
+            headerStyle: {
+              backgroundColor: '#3f64c7',
+            },
+            headerTintColor: '#FFF',
+            headerShown: true
+          }}
+        >
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Legado das Águas</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Museu Municipal Pedro Laragnoit"
-              status={checked == 'Museu Municipal Pedro Laragnoit' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Museu Municipal Pedro Laragnoit')}>
-
-            </Checkbox>
-            <Text style={styles.textoPontos}>Museu Municipal Pedro Laragnoit</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Cachoeira do Mel "
-              status={checked == 'Cachoeira do Mel' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Cachoeira do Mel')}>
-
-            </Checkbox>
-            <Text style={styles.textoPontos}>Cachoeira do Mel</Text>
-          </View>
-          <View>
-            <Text style={styles.textoNome}>Qual veículo você ira utilizar? </Text>
-            <RadioButton
-              style={styles.areaRadio}
-              value="Carro própio"
-              status={checked2 == 'Carro própio' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked2('Carro própio')}>
-
-            </RadioButton>
-            <Text style={styles.textoPontos}>Carro própio</Text>
-            <RadioButton
-              style={styles.areaRadio}
-              value="Ônibus"
-              status={checked2 == 'Ônibus' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked2('Ônibus')}>
-
-            </RadioButton>
-            <Text style={styles.textoPontos}>Ônibus</Text>
-            <RadioButton
-              style={styles.areaRadio}
-              value="Van de turismo"
-              status={checked2 == 'Van de turismo' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked2('Van de turismo')}>
-
-            </RadioButton>
-            <Text style={styles.textoPontos}>Van de turismo</Text>
-            <RadioButton
-              style={styles.areaRadio}
-              value="Bicicletas"
-              status={checked2 == 'Bicicletas' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked2('Bicicletas')}>
-
-            </RadioButton>
-            <Text style={styles.textoPontos}>Bicicletas</Text>
-          </View>
-
-          <TouchableOpacity
-            style={styles.botao}
-            onPress={enviarDados}>
-            <Text style={styles.botaoTexto}>Mostrar dados do cliente</Text>
-          </TouchableOpacity>
-
-        </View>
-      </ScrollView>
-    </View>
+        </Stack.Screen>
+        <Stack.Screen name="Tela2" component={Tela2}></Stack.Screen>
+        <Stack.Screen name="Tela3" component={Tela3}></Stack.Screen>
+        <Stack.Screen name="Principal" component={Principal} options={{ headerShown: false }}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer >
   );
+
 }
+
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
