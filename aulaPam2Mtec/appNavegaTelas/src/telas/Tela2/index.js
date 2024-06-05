@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, Text, View, Button, ScrollView, Checkbox } from "react-native";
 
 export default function Tela2({ navigation }) {
     const [checked, setChecked] = useState('Cachoeira do Faú');
@@ -8,6 +8,7 @@ export default function Tela2({ navigation }) {
     const [checkedAguas, setCheckedAguas] = useState('Legado das Águas');
     const [checkedMuseu, setCheckedMuseu] = useState('Museu Municipal Pedro Laragnoit');
     const [checkedMel, setCheckedMel] = useState('Cachoeira do Mel');
+
   return (
     <View style={styles.container}>
         <ScrollView>
@@ -20,11 +21,12 @@ export default function Tela2({ navigation }) {
               onPress={() => setChecked('Cachoeira do Faú')}>
             </Checkbox>
             <Text style={styles.textoPontos}>Cachoeira do Faú</Text>
+
             <Checkbox
               style={styles.areaRadio}
               value="Cachoeira da Pedra Grande"
-              status={checked == 'Cachoeira da Pedra Grande' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Cachoeira da Pedra Grande')}>
+              status={checkedPedra== 'Cachoeira da Pedra Grande' ? 'checked' : 'unchecked'}
+              onPress={() => setCheckedPedra('Cachoeira da Pedra Grande')}>
 
             </Checkbox>
             <Text style={styles.textoPontos}>Cachoeira da Pedra Grande</Text>
@@ -65,7 +67,6 @@ export default function Tela2({ navigation }) {
       <Button 
       title="ir para tela 3"
       onPress={() => navigation.navigate("Tela3")}>
-
       </Button>
     </View>
   )

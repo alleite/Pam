@@ -1,7 +1,9 @@
-import React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, Text, View, Button, ScrollView, TextInput} from "react-native";
+import Slider from "@react-native-community/slider";
 
-export default function Principal({ navigation }) {
+
+export default function Tela1({ navigation }) {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');

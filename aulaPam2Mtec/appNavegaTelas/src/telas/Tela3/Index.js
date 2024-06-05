@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 
 
-export default function App() {
+export default function Tela3({ navigation }){
     const [checked2, setChecked2] = useState('Carro própio');
 
     function enviarDados() {
