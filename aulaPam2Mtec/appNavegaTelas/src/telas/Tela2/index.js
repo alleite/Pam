@@ -33,32 +33,32 @@ export default function Tela2({ navigation }) {
             <Checkbox
               style={styles.areaRadio}
               value="Serra do Manecão"
-              status={checked == 'Serra do Manecão' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Serra do Manecão')}>
+              status={checkedManecao == 'Serra do Manecão' ? 'checked' : 'unchecked'}
+              onPress={() => setCheckedManecao('Serra do Manecão')}>
 
             </Checkbox>
             <Text style={styles.textoPontos}>Serra do Manecão</Text>
             <Checkbox
               style={styles.areaRadio}
               value="Legado das Águas "
-              status={checked == 'Legado das Águas' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Legado das Águas')}>
+              status={checkedAguas == 'Legado das Águas' ? 'checked' : 'unchecked'}
+              onPress={() => setCheckedAguas('Legado das Águas')}>
 
             </Checkbox>
             <Text style={styles.textoPontos}>Legado das Águas</Text>
             <Checkbox
               style={styles.areaRadio}
               value="Museu Municipal Pedro Laragnoit"
-              status={checked == 'Museu Municipal Pedro Laragnoit' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Museu Municipal Pedro Laragnoit')}>
+              status={checkedMuseu == 'Museu Municipal Pedro Laragnoit' ? 'checked' : 'unchecked'}
+              onPress={() => setCheckedMuseu('Museu Municipal Pedro Laragnoit')}>
 
             </Checkbox>
             <Text style={styles.textoPontos}>Museu Municipal Pedro Laragnoit</Text>
             <Checkbox
               style={styles.areaRadio}
               value="Cachoeira do Mel "
-              status={checked == 'Cachoeira do Mel' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Cachoeira do Mel')}>
+              status={checkedMel == 'Cachoeira do Mel' ? 'checked' : 'unchecked'}
+              onPress={() => setCheckedMel('Cachoeira do Mel')}>
 
             </Checkbox>
             <Text style={styles.textoPontos}>Cachoeira do Mel</Text>
