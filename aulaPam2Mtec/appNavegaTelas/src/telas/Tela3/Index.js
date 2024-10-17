@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button, ScrollView, RadioButton, TouchableOpacity} from "react-native";
 
 
 export default function Tela3({ navigation }){
@@ -24,7 +24,8 @@ export default function Tela3({ navigation }){
     return (
         <View style={styles.container}>
             <ScrollView>
-                <View>
+                <Text style={styles.textoNome}> Você está cadastrado</Text>
+                {/* <View>
                     <Text style={styles.textoNome}>Qual veículo você ira utilizar? </Text>
                     <RadioButton
                         style={styles.areaRadio}
@@ -58,13 +59,13 @@ export default function Tela3({ navigation }){
 
                     </RadioButton>
                     <Text style={styles.textoPontos}>Bicicletas</Text>
-                </View>
-
+                </View> */}
+{/* 
                 <TouchableOpacity
                     style={styles.botao}
                     onPress={enviarDados}>
                     <Text style={styles.botaoTexto}>Mostrar dados do cliente</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </ScrollView>
         </View>
     );

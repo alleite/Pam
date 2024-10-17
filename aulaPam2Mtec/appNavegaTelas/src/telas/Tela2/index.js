@@ -1,77 +1,73 @@
-import React, {useState} from "react";
-import { StyleSheet, Text, View, Button, ScrollView, Checkbox } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button, ScrollView, Checkbox, Image} from "react-native";
 
 export default function Tela2({ navigation }) {
-    const [checked, setChecked] = useState('Cachoeira do Faú');
-    const [checkedPedra, setCheckedPedra] = useState('Cachoeira da Pedra Grande');
-    const [checkedManecao, setCheckedManecao] = useState('Serra do Manecão');
-    const [checkedAguas, setCheckedAguas] = useState('Legado das Águas');
-    const [checkedMuseu, setCheckedMuseu] = useState('Museu Municipal Pedro Laragnoit');
-    const [checkedMel, setCheckedMel] = useState('Cachoeira do Mel');
-
+  // const [checked, setChecked] = useState(false);
+  // const [checkedPedra, setCheckedPedra] = useState(false);
+  // const [checkedManecao, setCheckedManecao] = useState(false);
+  // const [checkedAguas, setCheckedAguas] = useState(false);
+  // const [checkedMuseu, setCheckedMuseu] = useState(false);
+  // const [checkedMel, setCheckedMel] = useState(false);
+  
   return (
     <View style={styles.container}>
-        <ScrollView>
+      <ScrollView>
         <Text style={styles.textoNome}>Escolha quais pontos turísticos você quer visitar: </Text>
-          <View>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Cachoeira do Faú "
-              status={checked == 'Cachoeira do Faú' ? 'checked' : 'unchecked'}
-              onPress={() => setChecked('Cachoeira do Faú')}>
-            </Checkbox>
-            <Text style={styles.textoPontos}>Cachoeira do Faú</Text>
+        <View>
+        <Image
+          styles={styles.image}
+          source={require('../../../assets/image.png')}></Image>
 
-            <Checkbox
-              style={styles.areaRadio}
-              value="Cachoeira da Pedra Grande"
-              status={checkedPedra== 'Cachoeira da Pedra Grande' ? 'checked' : 'unchecked'}
-              onPress={() => setCheckedPedra('Cachoeira da Pedra Grande')}>
+          {/* <Checkbox
+            style={styles.areaRadio}
+            status={checked ? 'checked' : 'unchecked'}
+            onPress={() => setChecked(!checked)}>
+          </Checkbox>
+          <Text style={styles.textoPontos}>Cachoeira do Faú</Text>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Cachoeira da Pedra Grande</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Serra do Manecão"
-              status={checkedManecao == 'Serra do Manecão' ? 'checked' : 'unchecked'}
-              onPress={() => setCheckedManecao('Serra do Manecão')}>
+          <Checkbox
+            style={styles.areaRadio}
+            status={checkedPedra ? 'checked' : 'unchecked'}
+            onPress={() => setCheckedPedra(!checkedPedra)}>
+          </Checkbox>
+          <Text style={styles.textoPontos}>Cachoeira da Pedra Grande</Text>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Serra do Manecão</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Legado das Águas "
-              status={checkedAguas == 'Legado das Águas' ? 'checked' : 'unchecked'}
-              onPress={() => setCheckedAguas('Legado das Águas')}>
+          <Checkbox
+            style={styles.areaRadio}
+            status={checkedManecao ? 'checked' : 'unchecked'}
+            onPress={() => setCheckedManecao(!checkedManecao)}>
+          </Checkbox>
+          <Text style={styles.textoPontos}>Serra do Manecão</Text>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Legado das Águas</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Museu Municipal Pedro Laragnoit"
-              status={checkedMuseu == 'Museu Municipal Pedro Laragnoit' ? 'checked' : 'unchecked'}
-              onPress={() => setCheckedMuseu('Museu Municipal Pedro Laragnoit')}>
+          <Checkbox
+            style={styles.areaRadio}
+            status={checkedAguas ? 'checked' : 'unchecked'}
+            onPress={() => setCheckedAguas(!checkedAguas)}>
+          </Checkbox>
+          <Text style={styles.textoPontos}>Legado das Águas</Text>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Museu Municipal Pedro Laragnoit</Text>
-            <Checkbox
-              style={styles.areaRadio}
-              value="Cachoeira do Mel "
-              status={checkedMel == 'Cachoeira do Mel' ? 'checked' : 'unchecked'}
-              onPress={() => setCheckedMel('Cachoeira do Mel')}>
+          <Checkbox
+            style={styles.areaRadio}
+            status={checkedMuseu ? 'checked' : 'unchecked'}
+            onPress={() => setCheckedMuseu(!checkedMuseu)}>
+          </Checkbox>
+          <Text style={styles.textoPontos}>Museu Municipal Pedro Laragnoit</Text>
 
-            </Checkbox>
-            <Text style={styles.textoPontos}>Cachoeira do Mel</Text>
-          </View>
-        </ScrollView>
-      <Button 
-      title="ir para tela 3"
-      onPress={() => navigation.navigate("Tela3")}>
+          <Checkbox
+            style={styles.areaRadio}
+            status={checkedMel ? 'checked' : 'unchecked'}
+            onPress={() => setCheckedMel(!checkedMel)}>
+          </Checkbox>
+          <Text style={styles.textoPontos}>Cachoeira do Mel</Text> */}
+        </View>
+      </ScrollView>
+      <Button
+        title="ir para tela 3"
+        onPress={() => navigation.navigate("Tela3")}>
       </Button>
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -79,5 +75,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#5f9ea0',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  areaRadio: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
 });
